@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+/*
+ * (C) Elia Contini 2014. All right reserved.
+ */
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+hr {
+	display: none;
+}
+
+h1, h2, h3 {
+	font-weight: 300;
+	padding: 0;
+	padding-top: .5em;
+	margin: 0;
+}
+
+.feti {
+	background-color: #fefefe;
+	color: #333;
+	font-family: Ubuntu, sans-serif;
+	font-size: 100%;
+	font-weight: 300;
+	position: relative;
+}
+
+.feti .header {
+	border-bottom: 1px solid #ccc;
+	padding: .5% 1%;
+}
+
+.feti .header .title {
+	padding: 0;
+	vertical-align: middle;
+}
+
+.feti .header .logo {
+	vertical-align: middle;
+}
+
+.feti .what {
+	font-size: 160%;
+	left: 15%;
+	position: absolute;
+	top: 15%;
+	width: 40%;
+}
+
+.feti .followUs {
+	left: 60%;
+	position: absolute;
+	bottom: 5%;
+	width: 30%;
+}
+
+.feti .social {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	padding-top: .25em;
+}
+
+.feti .social .social--item {
+	display: inline-block;
+}
+
+.feti .footer {
+	background-color: #fff;
+	border-top: 1px solid #ccc;
+	bottom: 0;
+	font-size: 80%;
+	left: 0;
+	padding: .25%;
+	position: fixed;
+	text-align: right;
+	width: 99.5%;
+}
+
+@media screen and (max-width:767px) {
+	.feti .what,
+	.feti .followUs {
+		bottom: 0;
+		left: 0;
+		margin: 1% auto;
+		position: relative;
+		top: 0;
+		width: 90%;
+	}
+}
