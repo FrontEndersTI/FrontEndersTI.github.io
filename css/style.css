@@ -83,7 +83,7 @@ h1, h2, h3 {
 	width: 99.5%;
 }
 
-@media screen and (max-width:767px) {
+@media screen and (max-width:768px) {
 	.feti .what,
 	.feti .followUs {
 		bottom: 0;
