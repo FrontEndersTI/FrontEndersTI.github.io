@@ -189,10 +189,11 @@ img {
 .fe .footer .copyright,
 .fe .footer .social {
    display: inline-block;
+   vertical-align: top;
 }
 
 .fe .footer .social {
-   float: right;
+   text-align: right;
 }
 
 .fe .footer .social .menu-item {

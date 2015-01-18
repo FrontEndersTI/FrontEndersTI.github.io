@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="it-it">
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+      <meta name="Author" content="FrontEnders Ticino"/>
+      <title>Eventi passati - FrontEnders Ticino</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css"/>
+   </head>
+	<body class="fe">
+		<header class="header" role="banner">
+			<h1 class="title">
+				<img class="logo" src="img/FrontEnders_Ticino_logo.png" height="48" width="48" alt="FrontEnders Ticino"/>
+            <span class="a11y">FrontEnders Ticino</span>
+			</h1>
+         <nav class="nav" id="nav" role="navigation">
+            <ul class="menu">
+               <li class="menu-item"><a href="index.html">Home</a></li>
+               <li class="menu-item"><a href="perche-come.html">Perch&eacute; e come</a></li>
+               <li class="menu-item"><a href="chi.html">Chi</a></li>
+               <li class="menu-item current"><a href="eventi-passati.html">Eventi passati</a></li>
+            </ul>
+         </nav>
+		</header>
+		<hr/>
+		<main class="main" role="main">
+         <h1>Eventi passati</h1>
+
+         <h2>2015</h2>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/biglietti-architettura-delle-applicazioni-javascript-15182017824">14 Gennaio 2015 - Architettura delle applicazioni Javascript</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/eliacontini">Elia Contini</a></p>
+            <p class="property"><span class="name">Luogo</span>: Tipi&ugrave;, Chiasso</p>
+            <p class="property"><span class="name">Materiale</span>: </p>
+         </div>
+         
+         <h2>2014</h2>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/biglietti-interfacce-multicanale-quale-approccio-14503210493">17 Dicembre 2014 - Interfacce multicanale: quale approccio?</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/lucamascaro">Luca Mascaro</a></p>
+            <p class="property"><span class="name">Luogo</span>: Lugano Innovation Lab, Lugano</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="http://www.slideshare.net/lucamascaro/multichannel-interfaces">Slides</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/biglietti-i-tubi-di-gulp-14062540437">12 Novembre 2014 - I Tubi di Gulp</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="us.linkedin.com/pub/roman-steiner/53/957/a38/en">Roman Steiner</a></p>
+            <p class="property"><span class="name">Luogo</span>: Agora SecureWare SA, Manno</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="https://github.com/rasteiner/FrontEndersTI.github.io/tree/tools">Codice</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/biglietti-search-engine-optimization-seo-le-miglior-tattiche-di-indicizzazione-13571846759">15 Ottobre 2014 - <abbr lang="en-us" title="Search Engine Optimization">SEO</abbr>: le miglior tattiche di indicizzazione</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/paoloramazzotti">Paolo Ramazzotti</a></p>
+            <p class="property"><span class="name">Luogo</span>: Sketchin, Manno</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="http://www.slideshare.net/Gimasi_Sa/crawling-indicizzazione-e-seo-paolo-ramazzotti-40479711">Slides</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/metodologia-bem-tickets-12827452255">17 Settembre 2014 - Metodologia BEM</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/vzaccaria">Vittorio Zaccaria</a></p>
+            <p class="property"><span class="name">Luogo</span>: Beyounic, Manno</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="http://www.slideshare.net/vzaccaria/140917-bem-methodology">Slides</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/introduzione-al-testing-in-javascript-tickets-11684475581">18 Giugno 2014 - Introduzione al testing in JavaScript</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/pbozzolo">Piero Bozzolo</a></p>
+            <p class="property"><span class="name">Luogo</span>: GSite, Rancate</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="http://www.slideshare.net/fender/testing-in-javascript-36034597">Slides</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/gaad-global-accessibility-awareness-day-lugano-tickets-11333315251">15 Maggio 2014 - Global Accessibility Awareness Day</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://www.manuelebertoli.ch/">Manuele Bertoli</a>, <a href="http://us.linkedin.com/in/eliacontini">Elia Contini</a></p>
+            <p class="property"><span class="name">Luogo</span>: Scuole Medie Lugano 2 - Besso, Lugano</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="https://github.com/EliaContini/gaad-2014">Slides e codice</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/preprocessori-css-tickets-11068802085">16 Aprile 2014 - Preprocessori CSS</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/geoffroybaylaender">Geoffroy Baylaender</a></p>
+            <p class="property"><span class="name">Luogo</span>: Etalia SA, Lugano</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="http://www.slideshare.net/geoffroybaylaender/pres-preprocessori-css">Slides</a></p>
+         </div>
+         <div class="event">
+            <h3 class="title"><a href="http://www.eventbrite.it/e/angularjs-tickets-10661921093">12 Marzo 2014 - AngularJS</a></h3>
+            <p class="property"><span class="name">Relatore/i</span>: <a href="http://us.linkedin.com/in/aldopizzagalli">Aldo Pizzagalli</a></p>
+            <p class="property"><span class="name">Luogo</span>: Agora SecureWare SA, Manno</p>
+            <p class="property"><span class="name">Materiale</span>: <a href="http://www.slideshare.net/AldoPizzagalli/introduction-to-angularjs-32315804">Slides</a></p>
+         </div>
+		</main>
+		<hr/>
+		<footer class="footer">
+			<div class="copyright" role="contentinfo">&copy; 2014-2015 <a href="">FrontEnders Ticino</a>. Tutti i diritti sono riservati.</div>
+         <ul class="menu social">
+				<li class="menu-item"><a class="icon-linkedin" href="http://www.linkedin.com/groups?gid=7452605"><span class="a11y">FrontEnders Ticino su LinkedIn</span></a></li>
+				<li class="menu-item"><a class="icon-twitter" href="https://twitter.com/FrontEndersTI"><span class="a11y">FrontEnders Ticino su Twitter</span></a></li>
+				<li class="menu-item"><a class="icon-google-plus" href="https://plus.google.com/+FrontEndersTicinoCH?rel=author" rel="Author"><span class="a11y">FrontEnders Ticino su Google+</span></a></li>
+				<li class="menu-item"><a class="icon-facebook" href="https://www.facebook.com/frontendersticino"><span class="a11y">FrontEnders Ticino su Facebook</span></a></li>
+			</ul>
+		</footer>
+      <script async="async" src="js/Navigation.min.js"></script>
+      <script src="js/LazyLoader.min.js"></script>
+      <script>
+         LazyLoader.add({"rel":"stylesheet","type":"text/css","href":"http://fonts.googleapis.com/css?family=Ubuntu:300,500"});
+         LazyLoader.add({"rel":"stylesheet","type":"text/css","href":"css/icons.css"});
+      </script>
+	</body>
+</html>
