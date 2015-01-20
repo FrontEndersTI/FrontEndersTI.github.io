@@ -82,7 +82,7 @@ img {
 }
 
 .fe .team-member .description {
-   width: 76%;
+   width: 69%;
 }
 
 .fe .team-member .description .social {
@@ -287,5 +287,17 @@ img {
 
    .fe .footer .social {
       margin-bottom: 1em;
+   }
+}
+
+@media screen and (min-width:769px) and (max-width:1024px) {
+   .fe .header, .fe .main, .fe .footer {
+      width: 65%;
+   }
+}
+
+@media screen and (min-width:1025px) {
+   .fe .header, .fe .main, .fe .footer {
+      width: 55%;
    }
 }
