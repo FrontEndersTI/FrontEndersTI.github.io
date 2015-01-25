@@ -33,6 +33,37 @@ h1, h2, h3 {
 img {
    border: 0;
 }
+
+footer, header, main, nav {
+   display: block;
+}
+/*http://css-tricks.com/snippets/css/simple-and-nice-blockquote-styling/*/
+blockquote {
+   background: #f9f9f9;
+   border-left: 10px solid #ddd;
+   margin: 1.5em .75em;
+   padding: 0.5em;
+   quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+   color: #ccc;
+   content: open-quote;
+   font-size: 4em;
+   line-height: 0.1em;
+   margin-right: 0.25em;
+   vertical-align: -.4em;
+}
+
+blockquote p {
+   display: inline;
+}
+
+blockquote .author {
+   display: block;
+   font-weight: 400;
+   text-align: right;
+}
 /****************************************** Commons */
 .fe .a11y,
 .fe .menu {
@@ -56,6 +87,21 @@ img {
 
 .fe .menu .menu-item {
    display: inline-block;
+}
+
+.fe .call-to-action {
+   margin-bottom: 1em;
+   text-align: right;
+}
+
+.fe .call-to-action .btn {
+   background-color: #0051BA;
+   border: 1px solid #ddd;
+   border-radius: 0;
+   color: #fff;
+   font-size: 1em;
+   font-weight: 300;
+   padding: .25em;
 }
 
 .fe .social .menu-item a:link,
@@ -199,6 +245,14 @@ img {
    font-size: 150%;
    margin-left: .5em;
 }
+/*
+.home {
+   background-image: url("../img/frontenders_at_sketchin_2014.jpg");
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 100%;
+}*/
 /************************************ Media queries */
 @media screen and (max-width:768px) {
    body {
@@ -285,8 +339,8 @@ img {
       margin-right: .25em;
    }
 
-   .fe .footer .social {
-      margin-bottom: 1em;
+   .fe .footer {
+      margin-bottom: 2em;
    }
 }
 
