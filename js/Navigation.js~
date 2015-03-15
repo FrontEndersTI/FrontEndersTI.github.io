@@ -9,7 +9,7 @@ var Navigation = {
 		this._nav = document.getElementById("nav");
 		var parent = this._nav.parentNode;
 		var navButton = document.createElement("span");
-		navButton.setAttribute("class", "nav-button i-menu");
+		navButton.setAttribute("class", "nav-button icon-menu");
 		parent.insertBefore(navButton, this._nav);
 		Navigation._attachEvent(navButton, "click");
 		Navigation._attachEvent(navButton, "touchstart");
