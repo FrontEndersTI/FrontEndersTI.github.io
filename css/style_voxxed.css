@@ -178,10 +178,43 @@ blockquote .author {
    display: inline-block;
    width: 4.5em;
 }
+
+.fe .schedule {
+   border-collapse: collapse;
+   margin: 0;
+   padding: 0;
+   width: 100%;
+}
+
+.fe .schedule .th,
+.fe .schedule .td {
+   padding: .5em .25em;
+}
+
+.fe .schedule .th {
+   border-bottom: 2px solid #ddd;
+   text-align: left;
+}
+
+.fe .schedule .time {
+   width: 6em;
+}
+
+.fe .buy-ticket {
+   outline: 1px solid #ddd;
+   padding: .5em;
+   position: relative;
+}
+
+.fe .buy-ticket .voxxed {
+   position: absolute;
+   right: .5em;
+   top: 1.15em;
+}
 /******************************************* Layout */
 .fe .header, .fe .main, .fe .footer {
    margin: 0 auto;
-   width: 80%;
+   width: 85%;
 }
 
 .fe .header {
@@ -254,7 +287,7 @@ blockquote .author {
    height: 100%;
 }*/
 /************************************ Media queries */
-@media screen and (max-width:768px) {
+@media screen and (max-width:1023px) {
    body {
       font-size: 90%;
    }
@@ -333,6 +366,17 @@ blockquote .author {
       width: 2em;
    }
 
+   .fe .buy-ticket {
+      text-align: center;
+   }
+
+   .fe .buy-ticket .voxxed {
+      position: relative;
+      right: 0;
+      text-align: center;
+      top: 0;
+   }
+
    .fe .footer .social .menu-item,
    .fe .team-member .description .social .menu-item {
       font-size: 180%;
@@ -344,14 +388,20 @@ blockquote .author {
    }
 }
 
-@media screen and (min-width:769px) and (max-width:1024px) {
+/*@media screen and (min-width:769px) and (max-width:1024px) {
    .fe .header, .fe .main, .fe .footer {
-      /*width: 80%;*/
+      width: 65%;
    }
-}
+}*/
 
-@media screen and (min-width:1025px) {
+/*@media screen and (min-width:1025px) {
    .fe .header, .fe .main, .fe .footer {
       width: 55%;
+   }
+}*/
+
+@media screen and (min-width:1280px) {
+   .fe .header, .fe .main, .fe .footer {
+      width: 65%;
    }
 }
