@@ -170,6 +170,16 @@ blockquote .author {
    padding-top: .15em;
 }
 
+.fe .event .title .permalink {
+   display: none;
+}
+
+.fe .event .title:hover .permalink:link,
+.fe .event .title:hover .permalink:visited {
+   color: #333;
+   display: inline-block;
+}
+
 .fe .event .property {
    padding-top: .15em;
 }
