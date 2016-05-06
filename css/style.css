@@ -188,6 +188,9 @@ blockquote .author {
    display: inline-block;
    width: 4.5em;
 }
+.fe .canceled {
+   text-decoration: line-through;
+}
 /******************************************* Layout */
 .fe .header, .fe .main, .fe .footer {
    margin: 0 auto;
