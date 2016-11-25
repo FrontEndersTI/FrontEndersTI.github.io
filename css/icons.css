@@ -23,38 +23,45 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-menu:before {
-	content: "\e9bf";
-}
-
-.icon-google-plus:before {
-	content: "\ea89";
-}
-
-.icon-facebook:before {
-	content: "\ea8d";
-}
-
 .icon-twitter:before {
-	content: "\ea92";
+  content: "\f081";
 }
-
-.icon-github:before {
-	content: "\eab1";
+.icon-facebook:before {
+  content: "\f082";
 }
-
-.icon-wordpress:before {
-	content: "\eab7";
-}
-
-.icon-blogger:before {
-	content: "\eaba";
-}
-
-.icon-tumblr:before {
-	content: "\eabc";
-}
-
 .icon-linkedin:before {
-	content: "\eac8";
+  content: "\f08c";
+}
+.icon-github:before {
+  content: "\f09b";
+}
+.icon-bars:before {
+  content: "\f0c9";
+}
+.icon-navicon:before {
+  content: "\f0c9";
+}
+.icon-menu:before {
+  content: "\f0c9";
+}
+.icon-google-plus:before {
+  content: "\f0d4";
+}
+.icon-download:before {
+  content: "\f0ed";
+}
+.icon-youtube:before {
+  content: "\f16a";
+}
+.icon-flickr:before {
+  content: "\f16e";
+}
+.icon-tumblr:before {
+  content: "\f174";
+}
+.icon-wordpress:before {
+  content: "\f19a";
+}
+.icon-blogger:before {
+  content: "\eae2";
 }
