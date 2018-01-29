@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /*
- * (C) Elia Contini 2014-2015. All right reserved.
+ * (C) Elia Contini + Geoffroy Baylaender 2014-2018. All right reserved.
  */
 /******************************************** Reset */
 html, body, h1, h2, h3 {
@@ -88,7 +88,19 @@ blockquote .author {
 .fe .menu .menu-item {
    display: inline-block;
 }
-
+.fe .main .menu-intern {
+   padding-left:0;
+}
+.fe .main .menu-item {
+   display: inline-block;
+   padding-right: .5em;
+}
+.fe .main .menu-item:after {
+   content: "|";
+   display: inline-block;
+   color: black;
+   margin-left:.5em;
+}
 .fe .call-to-action {
    margin-bottom: 1em;
    text-align: right;
@@ -227,11 +239,15 @@ blockquote .author {
 .fe .header .nav .menu-item a:hover,
 .fe .header .nav .menu-item a:active,
 .fe .header .nav .current a:link,
-.fe .header .nav .current a:visited {
+.fe .header .nav .current a:visited,
+.fe .main .menu-item a:hover {
    background-image: linear-gradient(90deg, #EF4135 50%, #0051BA 50%);
 	background-position: 0 100%;
 	background-repeat: no-repeat;
 	background-size: 100% 5px;
+}
+.fe .main .menu-item a:hover {
+   padding-bottom:0.2em;
 }
 
 .fe .main {
