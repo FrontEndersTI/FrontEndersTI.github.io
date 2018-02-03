@@ -95,7 +95,7 @@ blockquote .author {
    display: inline-block;
    padding-right: .5em;
 }
-.fe .main .menu-item:after {
+.fe .main .menu:not(.social) .menu-item:after {
    content: "|";
    display: inline-block;
    color: black;
