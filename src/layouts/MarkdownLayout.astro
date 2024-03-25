@@ -1,0 +1,167 @@
+---
+import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+import DefaultLayout from './DefaultLayout.astro';
+import Twitter from '../components/social/Twitter.astro';
+import Facebook from '../components/social/Facebook.astro';
+import Linkedin from '../components/social/Linkedin.astro';
+import Whatsapp from '../components/social/Whatsapp.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<DefaultLayout title={frontmatter.title}>
+  <div class="container flex flex-col items-start">
+    <a class="button has-icon behavior-text" href="/events">
+      <Icon pack="mdi" name="chevron-left" />
+      See all events
+    </a>
+    <!-- All events navigation button -->
+    <div class="py-5">
+      <h1>{frontmatter.title}</h1>
+    </div>
+    <div class="inline-grid gap-x-20 md:grid-cols-3">
+      <div class="flex h-fit flex-initial grid-cols-1 flex-col gap-y-8 md:col-span-2 md:gap-y-20">
+        <Image src={frontmatter.image.url} alt={frontmatter.image.alt} class="hidden md:block rounded-3xl" height={388} width="690" />
+        <Image src={frontmatter.image.url} alt={frontmatter.image.alt} class="md:hidden rounded-3xl" height={220} width={390} />
+
+        <div class="flex w-full flex-col gap-y-4 self-start md:hidden">
+          <div class="outline-card flex flex-col gap-y-6">
+            <div class="flex flex-col gap-y-4">
+              <h4>{frontmatter.title}</h4>
+              <p class="small">{frontmatter.date} <br /> {frontmatter.time}</p>
+              <div class="flex">
+                <a class="button has-icon behavior-text size-small" href={frontmatter.location.url} target="_blank">
+                  {frontmatter.location.name}
+                  <Icon pack="mdi" name="map-marker-outline" />
+                </a>
+              </div>
+            </div>
+
+            <div class="flex flex-col">
+              <h6>Useful information</h6>
+              <p class="small">{frontmatter.info}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-y-4">
+          <h3>Speakers_</h3>
+          <div class="flex gap-x-4">
+            {
+              frontmatter.speakers.map((speaker) => (
+                <div class="flex items-center gap-x-2">
+                  <img class="speaker h-12 w-12 rounded-full" src={speaker.avatar} alt={speaker.fullname} />
+                  <div class="flex flex-col items-start gap-y-1">
+                    <p>{speaker.fullname}</p>
+                    <a class="button has-icon behavior-text size-small" href={speaker.link} target="_blank">
+                      <Icon pack="mdi" name="linkedin" />
+                    </a>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+        <div class="flex flex-col gap-y-4">
+          <h3>Details_</h3>
+          <slot />
+          <p>Al termine dell'evento potremo goderci pizza e birra 🍻 in compagnia!</p>
+        </div>
+        {
+          frontmatter.resources ? (
+            <div class="flex flex-col gap-y-4">
+              <>
+                <h3>Resources_</h3>
+                {frontmatter.resources.map((resource) => (
+                  <a href={resource.url} target="_blank">
+                    {resource.name}
+                  </a>
+                ))}
+              </>
+            </div>
+          ) : (
+            ''
+          )
+        }
+        {
+          frontmatter.video ? (
+            <div class="flex flex-col gap-y-4">
+              <>
+                <h3>Video_</h3>
+                <a href={frontmatter.slides} target="_blank">
+                  {frontmatter.title} - slides
+                </a>
+              </>
+            </div>
+          ) : (
+            ''
+          )
+        }
+      </div>
+      <div class="sticky top-32 hidden flex-col gap-y-4 self-start md:flex">
+        <div class="outline-card flex flex-col gap-y-6">
+          <div class="flex flex-col gap-y-4">
+            <h4>{frontmatter.title}</h4>
+            <p class="small">{frontmatter.date} <br /> {frontmatter.time}</p>
+            <div class="flex">
+              <a class="button has-icon behavior-text size-small" href={frontmatter.location.url} target="_blank">
+                {frontmatter.location.name}
+                <Icon pack="mdi" name="map-marker-outline" />
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <h6>Useful information</h6>
+            <p class="small">{frontmatter.info}</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between">
+          <div class="flex items-center gap-x-2">
+            <p>Share:</p>
+            <Linkedin />
+            <Facebook />
+            <Whatsapp description={frontmatter.social} />
+            <Twitter description={frontmatter.social} />
+          </div>
+
+          <a class="button has-icon size-small" href={frontmatter.meetup} target="_blank">
+            subscribe
+            <Icon pack="cib" name="meetup" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="share sticky bottom-0 px-6 pb-8 pt-4 md:hidden">
+    <a class="button has-icon size-small" href={frontmatter.meetup} target="_blank">
+      subscribe
+      <Icon pack="cib" name="meetup" />
+    </a>
+  </div>
+</DefaultLayout>
+
+<style lang="scss">
+  img.speaker {
+    border: 2px solid var(--primary-500);
+  }
+
+  .share {
+    background: var(--neutral-100);
+    opacity: 0.95;
+  }
+
+  :global(.darkmode) {
+    .speaker {
+      border: 2px solid var(--primary-200);
+    }
+
+    .share {
+      background: var(--dark-100);
+      opacity: 0.95;
+    }
+  }
+</style>

@@ -1,0 +1,51 @@
+// | -------------------------------------------------------------
+// | Container
+// | -------------------------------------------------------------
+
+@use 'breakpoint' as *;
+
+.container {
+  margin: 0 auto;
+  padding: 0 calc(2rem / 2);
+  max-width: 100%;
+
+  @include breakpoint(medium) {
+    padding: 0 2rem;
+  }
+
+  @include breakpoint(large) {
+    padding: 0 calc(2rem / 2);
+    max-width: 75rem;
+  }
+
+  &.stretch {
+    max-width: 100%;
+  }
+}
+
+.outline-card {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 3px solid var(--primary-500);
+}
+
+header {
+  background-color: var(--neutral-200);
+  z-index: 999;
+}
+
+footer,
+main {
+  position: relative;
+  top: 8rem;
+}
+
+.darkmode {
+  header {
+    background-color: var(--dark-100);
+  }
+
+  .outline-card {
+    border: 3px solid var(--primary-200);
+  }
+}

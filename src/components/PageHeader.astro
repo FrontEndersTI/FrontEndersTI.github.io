@@ -1,0 +1,15 @@
+---
+import { Image } from 'astro:assets';
+
+const { light_image, dark_image, title = 'Title' } = Astro.props;
+---
+
+<section class="my-12">
+  <div class="container flex place-content-between items-center">
+    <h1>{title}</h1>
+    <div class="hidden md:block">
+      <Image class="justify-self-end dark:hidden" src={light_image} alt={`${title} cover image`} decoding="async" />
+      <Image class="hidden justify-self-end dark:block" src={dark_image} alt={`${title} cover image`} decoding="async" />
+    </div>
+  </div>
+</section>

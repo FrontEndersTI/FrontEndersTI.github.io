@@ -1,0 +1,92 @@
+---
+import { Image } from 'astro:assets';
+
+const { image, url, title = 'Title', className = '' } = Astro.props;
+---
+
+<div class:list={['event-container', className]}>
+  <div class="event flex @xs:flex-col @md:flex-row">
+    <div class="after"></div>
+    <div class="@md:h-[337px] @md:flex-1">
+      <Image
+        class="@xs:rounded-t-[0.8rem] @md:h-full @md:rounded-l-[0.8rem] @md:rounded-r-none @md:object-cover"
+        src={image}
+        height={337}
+        width={600}
+        alt={`${title} cover image`}
+      />
+    </div>
+
+    <div class="content flex flex-1 flex-col justify-center gap-4 p-4 @xs:rounded-b-[0.8rem] @md:rounded-r-[0.8rem] @md:rounded-l-none">
+      <a href={url}>
+        <h4>{title}</h4>
+      </a>
+      <slot />
+    </div>
+  </div>
+
+  <style lang="scss">
+    @use '../assets/scss/base/breakpoint' as *;
+
+    .event-container {
+      position: relative;
+    }
+
+    .event {
+      position: relative;
+      width: calc(100% - 0.5rem);
+      // height: 27rem;
+      background-color: transparent;
+
+      > * {
+        position: relative;
+        z-index: 2;
+      }
+
+      @include breakpoint(large) {
+        width: 100%;
+      }
+
+      inset: 0;
+      border-radius: 1rem;
+      box-shadow: 0 0 0 6px var(--neutral-100);
+      border: 3px solid var(--neutral-700);
+
+      &:hover .after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        border-radius: 1.4rem;
+        background-color: var(--primary-500);
+        inset: 0.5rem -1rem -1rem 0.5rem;
+      }
+
+      .content {
+        background-color: var(--neutral-100);
+        z-index: 1;
+      }
+
+      img {
+        z-index: 1;
+      }
+    }
+
+    :global(.event [astro-icon]) {
+      width: 4rem;
+      color: var(--action-color);
+    }
+
+    :global(.darkmode) {
+      .event {
+        box-shadow: 0 0 0 6px var(--dark-100);
+        &:hover .after {
+          background-color: var(--primary-200);
+        }
+
+        .content {
+          background-color: var(--dark-100);
+        }
+      }
+    }
+  </style>
+</div>

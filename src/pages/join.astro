@@ -1,0 +1,43 @@
+---
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+import darkCover from '../assets/img/events-dark.svg';
+import lightCover from '../assets/img/events-light.svg';
+---
+
+<DefaultLayout>
+  <div class="container">
+    <PageHeader title="Join_" light_image={lightCover} dark_image={darkCover} />
+    <section class="my-12 flex flex-col gap-24">
+      <div class="container flex flex-col gap-8">
+        <h3>As a viewer_</h3>
+        <div class="hidden flex-col gap-4 md:flex">
+          <h4>Monthly meetings</h4>
+          <h4>
+            registration required on: <a href="https://meetup.com/frontenders-ticino/" target="_blank"
+              >meetup.com/frontenders-ticino/</a>
+          </h4>
+        </div>
+        <div class="flex flex-col gap-4 md:hidden">
+          <h6>Monthly meetings</h6>
+          <h6>
+            registration required on: <a href="https://meetup.com/frontenders-ticino/" target="_blank"
+              >meetup.com/frontenders-ticino/</a>
+          </h6>
+        </div>
+      </div>
+      <div class="container flex flex-col gap-8">
+        <h3>As a speaker_</h3>
+        <div class="hidden flex-col gap-4 md:flex">
+          <h4>Hey there! Do you happen to have an exciting topic in mind that you'd like to propose? 😊</h4>
+          <h4>Send an email to: <a href="mailto:hello@frontendersticino.ch">hello@frontendersticino.ch</a></h4>
+        </div>
+        <div class="flex flex-col gap-4 md:hidden">
+          <h6>Hey there! Do you happen to have an exciting topic in mind that you'd like to propose? 😊</h6>
+          <h6>Send an email to: <a href="mailto:hello@frontendersticino.ch">hello@frontendersticino.ch</a></h6>
+        </div>
+      </div>
+    </section>
+  </div>
+</DefaultLayout>

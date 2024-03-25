@@ -1,0 +1,122 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import Event from '../../components/Event.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+import darkCover from '../../assets/img/join-dark.svg';
+import lightCover from '../../assets/img/join-light.svg';
+
+const events = await Astro.glob('./*.md');
+
+const pastEvents = events
+  .filter((event) => {
+    const date = new Date(event.frontmatter.date);
+    const now = new Date();
+    return date < now;
+  })
+  .sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return +dateB - +dateA;
+  });
+
+const upcomingEvents = events
+  .filter((event) => {
+    const date = new Date(event.frontmatter.date);
+    const now = new Date();
+    return date > now;
+  })
+  .sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return +dateA - +dateB;
+  })
+  .slice(0, 3);
+
+const nextEvent = upcomingEvents[0];
+---
+
+<DefaultLayout
+  title="Events"
+  description="An example of a blog with dynamic content fetched from JSONPlaceholder using the title, body and userId."
+>
+  <PageHeader title="Events_" dark_image={darkCover} light_image={lightCover} />
+  <section class="my-12">
+    {
+      nextEvent ? (
+        <div class="container flex flex-col gap-12 @container">
+          <h3>Upcoming event_</h3>
+          <Event
+            className="ml-4 hidden md:block"
+            image={nextEvent.frontmatter.image.url}
+            title={nextEvent.frontmatter.title}
+            url={nextEvent.url}
+          >
+            <p class="caption">{nextEvent.frontmatter.location.name}</p>
+            <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+          </Event>
+          <Event
+            className="md:hidden"
+            image={nextEvent.frontmatter.image.url}
+            title={nextEvent.frontmatter.title}
+            url={nextEvent.url}
+          >
+            <p class="caption">{nextEvent.frontmatter.location.name}</p>
+            <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+          </Event>
+        </div>
+      ) : (
+        ''
+      )
+    }
+
+    <div class="container">
+      <h3 class="my-12">Scheduled events_</h3>
+      <ul>
+        {
+          upcomingEvents.map((event) => (
+            <li class="@container">
+              <Event image={event.frontmatter.image.url} title={event.frontmatter.title} url={event.url}>
+                <p class="caption">{event.frontmatter.location.name}</p>
+                <p class="small">{`${event.frontmatter.date} ${event.frontmatter.time}`}</p>
+              </Event>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="container">
+      <h3 class="my-12">Past events_</h3>
+      <ul>
+        {
+          pastEvents.map((event) => (
+            <li class="@container">
+              <Event image={event.frontmatter.image.url} title={event.frontmatter.title} url={event.url}>
+                <p class="caption">{event.frontmatter.location.name}</p>
+                <p class="small">{`${event.frontmatter.date} ${event.frontmatter.time}`}</p>
+              </Event>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 4rem;
+
+    @media (min-width: 550px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+
+    @media (min-width: 950px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

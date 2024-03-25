@@ -1,0 +1,13 @@
+---
+import { Icon } from 'astro-icon';
+
+const { url = Astro.request.url, description } = Astro.props;
+
+let URL = `https://twitter.com/intent/tweet?url=${url}&via=FrontEndersTI`;
+
+URL += `&text=${description}`;
+---
+
+<a class="button has-icon behavior-text size-small" target="_blank" href={URL} rel="noopener noreferrer">
+  <Icon name="X" />
+</a>

@@ -1,0 +1,251 @@
+---
+import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+import DefaultLayout from '../layouts/DefaultLayout.astro';
+import Hero from '../components/Hero.astro';
+import Event from '../components/Event.astro';
+import Counter from '../components/Counter.astro';
+import Organizer from '../components/Organizer.astro';
+
+import codognoImg from '../assets/img/organizers/matteo_codogno.jpg';
+import degiorgiImg from '../assets/img/organizers/giovanni_degiorgi.jpeg';
+import vannucciImg from '../assets/img/organizers/simone_vannucci.jpeg';
+
+import monthlyDarkImg from '../assets/img/monthly-dark.svg';
+import monthlyLightImg from '../assets/img/monthly-light.svg';
+import shareDarkImg from '../assets/img/share-dark.svg';
+import shareLightImg from '../assets/img/share-light.svg';
+import networkingDarkImg from '../assets/img/networking-dark.svg';
+import networkingLightImg from '../assets/img/networking-light.svg';
+
+const events = await Astro.glob('./events/*.md');
+
+const pastEvents = events
+  .filter((event) => {
+    const date = new Date(event.frontmatter.date);
+    const now = new Date();
+    return date < now;
+  })
+  .sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return +dateB - +dateA;
+  })
+  .slice(0, 3);
+
+const upcomingEvents = events
+  .filter((event) => {
+    const date = new Date(event.frontmatter.date);
+    const now = new Date();
+    return date > now;
+  })
+  .sort((a, b) => {
+    const dateA = new Date(a.frontmatter.date);
+    const dateB = new Date(b.frontmatter.date);
+    return +dateA - +dateB;
+  })
+  .slice(0, 3);
+
+const nextEvent = upcomingEvents[0];
+---
+
+<DefaultLayout title="Home">
+  <Hero />
+
+  {
+    nextEvent ? (
+      <section class="my-28">
+        <div class="container flex flex-col gap-12 @container">
+          <h2>Upcoming event_</h2>
+          <Event
+            className="hidden md:block"
+            image={nextEvent.frontmatter.image.url}
+            title={nextEvent.frontmatter.title}
+            url={nextEvent.url}
+          >
+            <p class="caption">{nextEvent.frontmatter.location.name}</p>
+            <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+          </Event>
+          <Event
+            className="md:hidden"
+            image={nextEvent.frontmatter.image.url}
+            title={nextEvent.frontmatter.title}
+            url={nextEvent.url}
+          >
+            <p class="caption">{nextEvent.frontmatter.location.name}</p>
+            <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+          </Event>
+        </div>
+      </section>
+    ) : (
+      ''
+    )
+  }
+
+  <section class="my-28">
+    <div class="container">
+      <h2 class="my-12">Why participate_</h2>
+      <div class="partecipate">
+        <div class="flex flex-col items-center gap-10">
+          <Image src={monthlyDarkImg} alt="montly event" class="hidden h-48 w-44 dark:block" />
+          <Image src={monthlyLightImg} alt="montly event" class="h-48 w-44 dark:hidden" />
+          <div class="flex flex-col gap-4">
+            <h3 class="font-bold">Montly event</h3>
+            <p class="">
+              The meetings for a maximum of 25 people include 30 minutes to set up aperitifs and welcome the
+              participants, followed by 20 minutes to address the topic that serves as a starting point for the
+              discussion.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-10">
+          <Image src={shareDarkImg} alt="share knowledge" class="hidden h-48 dark:block" />
+          <Image src={shareLightImg} alt="share knowledge" class="h-48 dark:hidden" />
+          <div class="flex flex-col gap-4">
+            <h3 class="font-bold">Share the knowledge</h3>
+            <p class="">
+              Each of us has a know-how that, if shared, enriches not only others but also ourselves: teaching others
+              what we know allows us to better understand things ourselves.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center gap-10">
+          <Image src={networkingDarkImg} alt="Networking events" class="hidden h-48 dark:block" />
+          <Image src={networkingLightImg} alt="Networking events" class="h-48 dark:hidden" />
+          <div class="flex flex-col gap-4">
+            <h3 class="font-bold">Build a network</h3>
+            <p class="">
+              Searching for hospitality with Ticino companies each time, wants to create a network between industry
+              professionals and companies, but also promote these business entities in the area.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-28">
+    <div class="container flex flex-col gap-12">
+      <div class="flex items-center justify-between">
+        <h2>Scheduled events_</h2>
+        <div class="hidden md:block">
+          <a class="button has-icon behavior-text" href="/events">
+            See all events
+            <Icon pack="mdi" name="chevron-right" />
+          </a>
+        </div>
+      </div>
+      <ul>
+        {
+          upcomingEvents.map((event) => (
+            <li class="@container">
+              <Event image={event.frontmatter.image.url} title={event.frontmatter.title} url={event.url}>
+                <p class="caption">{event.frontmatter.location.name}</p>
+                <p class="small">{`${event.frontmatter.date} ${event.frontmatter.time}`}</p>
+              </Event>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex justify-end md:hidden">
+        <a class="button has-icon behavior-text" href="/events">
+          See all events
+          <Icon pack="mdi" name="chevron-right" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-28">
+    <div class="container flex flex-col gap-12">
+      <div class="flex items-center justify-between">
+        <h2>Past events_</h2>
+        <div class="hidden md:block">
+          <a class="button has-icon behavior-text" href="/events">
+            See all events
+            <Icon pack="mdi" name="chevron-right" />
+          </a>
+        </div>
+      </div>
+      <ul>
+        {
+          pastEvents.map((event) => (
+            <li class="@container">
+              <Event image={event.frontmatter.image.url} title={event.frontmatter.title} url={event.url}>
+                <p class="caption">{event.frontmatter.location.name}</p>
+                <p class="small">{`${event.frontmatter.date} ${event.frontmatter.time}`}</p>
+              </Event>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="flex justify-end md:hidden">
+        <a class="button has-icon behavior-text" href="/events">
+          See all events
+          <Icon pack="mdi" name="chevron-right" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="my-28">
+    <div class="container flex flex-col gap-12">
+      <h2>Organizers_</h2>
+      <div class="flex flex-col gap-8">
+        <Organizer
+          name="Giovanni Degiorgi"
+          description="Solutions Architect at Swiss Post"
+          image={degiorgiImg}
+          linkedin="https://www.linkedin.com/in/degiorgi/"
+          quote="Any sufficiently advanced technology is indistinguishable from magic. - Arthur C. Clarke"
+        />
+        <Organizer
+          name="Matteo Codogno"
+          description="Technical Leader at wellD"
+          image={codognoImg}
+          linkedin="https://www.linkedin.com/in/matteocodogno/"
+          quote="Any fool can write code that a computer can understand. Good programmers write code that humans can understand."
+        />
+        <Organizer
+          name="Simone Vannucci"
+          description="Developer | Guerrilla Digital Lab GmbH"
+          image={vannucciImg}
+          linkedin="https://www.linkedin.com/in/simone-vannucci/"
+          quote="Success in creating AI would be the biggest event in human history. Unfortunately, it might also be the last, unless we learn how to avoid the risks. - Stephen Hawking"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="my-28">
+    <div class="container flex flex-col gap-12">
+      <h2>Counters_</h2>
+      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
+        <Counter count="53" title="Events" sub="In Ticino" />
+        <Counter count="159" title="Members" sub="On Meetup" />
+        <Counter count="9+" title="Years" sub="Since launch" />
+        <Counter count="1" title="Montly" sub="Event" />
+      </div>
+    </div>
+  </section>
+</DefaultLayout>
+
+<style lang="scss">
+  ul,
+  div.partecipate {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 4rem;
+
+    @media (min-width: 550px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+
+    @media (min-width: 950px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

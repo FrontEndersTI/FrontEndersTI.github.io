@@ -1,0 +1,123 @@
+---
+import '@astrojs/tailwind/base.css';
+import '../assets/scss/globals.scss';
+import SiteMeta from '../components/SiteMeta.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const {
+  title = 'Frontenders Ticino',
+  description = 'Frontenders Ticino is a community of front-end developers and designers in Ticino, Switzerland.',
+  image = '/android-chrome-512x512.png',
+  author = 'Matteo Codogno',
+} = Astro.props;
+---
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- fonts -->
+    <link rel="preload" href="/fonts/Inconsolata-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inconsolata-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inconsolata-Light.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-Medium.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <SiteMeta
+      title={title}
+      description={description.substring(0, 100)}
+      url={Astro.site
+        ? `${Astro.site}/${title.toLowerCase().replaceAll(' ', '-')}`
+        : `https://frontenders.ch/${title.toLowerCase().replaceAll(' ', '-')}`}
+      image={image}
+      author={author}
+    />
+  </head>
+  <body>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <style lang="scss" is:global>
+      // theme settings
+      :root {
+        --radius-small: 3px;
+        --radius-large: 6px;
+        --gap-default: 2rem;
+        --font-measure: 70ch;
+        --font-family-default: 'Inter';
+        --font-family-special: 'Inconsolata';
+        // light theme
+        --font-color: var(--dark-100);
+        --action-color: var(--dark-100);
+        --action-color-state: var(--dark-100);
+        --background: var(--neutral-200);
+        --primary-background: var(--primary-100);
+        --neutral-background: var(--neutral-200);
+      }
+
+      // dark color scheme overrides
+      .darkmode {
+        --font-color: var(--neutral-100);
+        --action-color: var(--neutral-100);
+        --action-color-state: var(--neutral-300);
+        --background: var(--dark-100);
+        --primary-background: var(--primary-500);
+        --neutral-background: var(--neutral-900);
+      }
+
+      // sticky footer on low content pages
+      html,
+      body {
+        height: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        color: var(--font-color);
+        background-color: var(--background);
+
+        main {
+          flex: 1 0 auto;
+        }
+
+        footer {
+          flex-shrink: 0;
+        }
+      }
+
+      pre {
+        padding: 1rem;
+        border-radius: 0.35rem;
+        border: 2px solid var(--action-color);
+      }
+
+      body .pagination a {
+        &:hover,
+        &:focus-visible {
+          background-color: var(--action-color-state);
+
+          svg path {
+            stroke: white;
+          }
+        }
+      }
+    </style>
+
+    <script src="../scripts/themeColor.js"></script>
+  </body>
+</html>

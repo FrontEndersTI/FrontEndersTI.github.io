@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon';
+import { Image } from 'astro:assets';
+
+import darkCover from '../assets/img/home-dark.svg';
+import lightCover from '../assets/img/home-light.svg';
+---
+
+<section class="hero mb-28 mt-2">
+  <div class="container items-center gap-x-1">
+    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-4">
+      <div class="col-start-1 col-end-4 flex flex-col items-center gap-8 md:items-start">
+        <h1>
+          <span class="text-gradient">.frontendersticino</span> &lcub;
+        </h1>
+        <h2>/* una community per designer e sviluppatori che stanno al fronte */</h2>
+        <div class="flex flex-col gap-3 min-[500px]:flex-row">
+          <a class="button has-icon" href="/events">
+            Se all events
+            <Icon pack="mdi" name="arrow-right" />
+          </a>
+        </div>
+        <h1>&rcub;</h1>
+      </div>
+      <div class="absolute right-0 lg:top-0 hidden md:block md:top-80">
+        <Image class="hidden justify-self-end dark:block" src={darkCover} alt="Home page cover" decoding="async" />
+        <Image class="justify-self-end dark:hidden" src={lightCover} alt="Home page cover" decoding="async" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  :global(.text-gradient) {
+    background: linear-gradient(315deg, var(--primary-500) 25%, var(--secondary-400));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  :global(.darkmode .text-gradient) {
+    background: linear-gradient(315deg, var(--primary-200) 25%, var(--secondary-400));
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
