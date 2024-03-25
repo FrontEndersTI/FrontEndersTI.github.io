@@ -1,0 +1,11 @@
+---
+import { Icon } from 'astro-icon';
+
+const { url = Astro.request.url } = Astro.props;
+
+let URL = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=Share`;
+---
+
+<a class="button has-icon behavior-text size-small" target="_blank" href={URL} rel="noopener noreferrer">
+  <Icon pack="mdi" name="linkedin" />
+</a>

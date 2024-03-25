@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon';
+
+const { name, description, image, linkedin, quote } = Astro.props;
+---
+
+<div class="flex flex-col gap-8">
+  <div class="organizer flex gap-6 px-6 py-8 md:px-24 items-start">
+    <Image src={image} alt={name} width={64} height={64} class="rounded-full md:hidden" />
+    <Image src={image} alt={name} width={176} height={176} class="hidden rounded-full md:block" />
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col gap-1">
+        <h4>{name}</h4>
+        <p class="small">{description}</p>
+      </div>
+      <div class="flex flex-col items-start gap-6">
+        <p class="large">{quote}</p>
+        <a class="button has-icon behavior-text size-large" href={linkedin} target="_blank" aria-label={`Go to ${name}'s Linkedin profile'`}>
+          <Icon pack="mdi" name="linkedin" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .organizer {
+    border-radius: 0.75rem;
+    background: var(--Gradient-light-mode, linear-gradient(85deg, rgba(133, 169, 216, 0.2) 0%, #85a9d8 100.33%));
+
+    img {
+      border: 2px solid var(--primary-500);
+    }
+  }
+
+  :global(.darkmode) {
+    .organizer {
+      border-radius: 0.75rem;
+      background: var(--Gradient-dark-mode, linear-gradient(85deg, rgba(49, 69, 129, 0.3) 0%, #304480 100.33%));
+
+      img {
+        border: 2px solid var(--primary-200);
+      }
+    }
+  }
+</style>

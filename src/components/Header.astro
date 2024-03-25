@@ -1,0 +1,69 @@
+---
+import Navigation from '../components/Navigation.astro';
+import { SkipLinks } from 'accessible-astro-components';
+import { Icon } from 'astro-icon';
+---
+
+<header class="fixed left-0 right-0 top-0">
+  <SkipLinks />
+  <Navigation>
+    <li class="menu-item">
+      <a href="/events/">Events</a>
+    </li>
+    <li class="menu-item">
+      <a href="/join/">Join</a>
+    </li>
+
+    <li class="menu-item type-icon md:ml-40">
+      <a href="https://github.com/FrontEndersTI" title="Go to the GitHub page" target="_blank">
+        <Icon pack="ion" name="logo-github" />
+      </a>
+    </li>
+    <li class="menu-item type-icon">
+      <a href="https://flickr.com/photos/frontendersticino" title="Go to the Flickr page" target="_blank">
+        <Icon pack="jam" name="flickr" />
+      </a>
+    </li>
+    <li class="menu-item type-icon">
+      <a href="https://www.linkedin.com/groups/7452605/" title="Go to the Linkedin group" target="_blank">
+        <Icon pack="mdi" name="linkedin" />
+      </a>
+    </li>
+    <li class="menu-item type-icon">
+      <a href="https://twitter.com/FrontEndersTI" title="Go to the twitter page" target="_blank">
+        <Icon name="X" />
+      </a>
+    </li>
+    <li class="menu-item type-icon">
+      <a href="https://www.facebook.com/frontendersticino" title="Go to the facebook page" target="_blank">
+        <Icon pack="mdi" name="facebook" />
+      </a>
+    </li>
+  </Navigation>
+</header>
+
+<style lang="scss" is:global>
+  @use '../assets/scss/base/outline' as *;
+
+  header {
+    .type-icon a {
+      display: block;
+
+      [astro-icon] {
+        margin-top: -4px;
+        width: 30px;
+
+        path {
+          fill: var(--action-color);
+          transition: fill 0.2s ease-in-out;
+        }
+      }
+
+      &:hover {
+        [astro-icon] path {
+          fill: var(--action-color-state);
+        }
+      }
+    }
+  }
+</style>

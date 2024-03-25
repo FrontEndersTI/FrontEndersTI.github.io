@@ -1,0 +1,187 @@
+// | -------------------------------------------------------------
+// | Font
+// | -------------------------------------------------------------
+
+@use 'breakpoint' as *;
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/fonts/Inconsolata-ExtraBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/fonts/Inconsolata-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('/fonts/Inconsolata-Light.woff2') format('woff2');
+  font-weight: lighter;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Medium.woff2') format('woff2');
+  font-weight: medium;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: var(--font-family-default);
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.25rem;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  a:not(.button) {
+    color: var(--action-color);
+    text-decoration: underline;
+
+    &:visited,
+    &:hover,
+    &:focus {
+      color: var(--action-color-state);
+      text-decoration: underline;
+    }
+  }
+
+  :where(main) a {
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-family-special);
+  }
+
+  h1 {
+    font-weight: 800;
+  }
+
+  h2,
+  h3 {
+    font-weight: 300;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+  }
+
+  h1 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+
+    @include breakpoint(small) {
+      font-size: 4.6875rem;
+      line-height: 5.625rem;
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+
+    @include breakpoint(small) {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
+  }
+
+  h3 {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    text-decoration-line: underline;
+  }
+
+  h6 {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+  }
+
+  code {
+    font-family: inherit;
+  }
+
+  .caption {
+    font-size: 1rem;
+    line-height: 1.2rem;
+    font-weight: 700;
+  }
+
+  .large {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 400;
+  }
+
+  .small {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 300;
+  }
+
+  .text-dark {
+    color: var(--dark-100);
+  }
+
+  &.darkmode {
+    h1 {
+      color: var(--primary-200);
+    }
+  }
+
+  @include breakpoint_max(medium) {
+    h1 {
+      font-size: 2rem;
+      line-height: 2.4rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.8rem;
+    }
+  }
+}
