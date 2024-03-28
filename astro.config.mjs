@@ -8,11 +8,11 @@ import netlify from "@astrojs/netlify/functions";
 // https://astro.build/config
 export default defineConfig({
   compressHTML: true,
-  site: 'https://frontendersti.github.io',
+  site: 'https://FrontEndersTI.github.io',
   // base: '/FrontEndersTI.github.io',
   integrations: [compress(), mdx(), tailwind({
     applyBaseStyles: false
   })],
-  output: "server",
-  adapter: netlify()
+  // output: "server",
+  // adapter: netlify()
 });
