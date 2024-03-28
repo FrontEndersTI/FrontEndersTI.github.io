@@ -38,50 +38,69 @@ const nextEvent = upcomingEvents[0];
 
 <DefaultLayout
   title="Events"
-  description="An example of a blog with dynamic content fetched from JSONPlaceholder using the title, body and userId."
->
+  description="An example of a blog with dynamic content fetched from JSONPlaceholder using the title, body and userId.">
   <PageHeader title="Events_" dark_image={darkCover} light_image={lightCover} />
   <section class="my-12">
-    {
-      nextEvent ? (
-        <div class="container flex flex-col gap-12 @container">
-          <h3>Upcoming event_</h3>
+    <div class="container flex flex-col gap-12 @container">
+      <h3>Upcoming event_</h3>
+      {
+        nextEvent ? (
+          <>
+            <Event
+              className="ml-4 hidden md:block"
+              image={nextEvent.frontmatter.image.url}
+              title={nextEvent.frontmatter.title}
+              url={nextEvent.url}>
+              <p class="caption">{nextEvent.frontmatter.location.name}</p>
+              <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+            </Event>
+            <Event
+              className="md:hidden"
+              image={nextEvent.frontmatter.image.url}
+              title={nextEvent.frontmatter.title}
+              url={nextEvent.url}>
+              <p class="caption">{nextEvent.frontmatter.location.name}</p>
+              <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+            </Event>
+          </>
+        ) : (
           <Event
-            className="ml-4 hidden md:block"
-            image={nextEvent.frontmatter.image.url}
-            title={nextEvent.frontmatter.title}
-            url={nextEvent.url}
-          >
-            <p class="caption">{nextEvent.frontmatter.location.name}</p>
-            <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
+            className=""
+            image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXNrcmk2emloanpxZzF1dXMzd216eWd1ZnExY3l6dDI5YTlwdXp0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g01ZnwAUvutuK8GIQn/giphy.gif"
+            title="Seeking Speakers: Come Sparkle on the Stage!"
+            url="/join">
+            <p class="caption">Every adventure requires a first step.</p>
+            <p class="small">It's always talks-time.</p>
           </Event>
-          <Event
-            className="md:hidden"
-            image={nextEvent.frontmatter.image.url}
-            title={nextEvent.frontmatter.title}
-            url={nextEvent.url}
-          >
-            <p class="caption">{nextEvent.frontmatter.location.name}</p>
-            <p class="small">{`${nextEvent.frontmatter.date} ${nextEvent.frontmatter.time}`}</p>
-          </Event>
-        </div>
-      ) : (
-        ''
-      )
-    }
+        )
+      }
+    </div>
 
     <div class="container">
       <h3 class="my-12">Scheduled events_</h3>
       <ul>
         {
-          upcomingEvents.map((event) => (
+          upcomingEvents.length === 0 ? (
             <li class="@container">
-              <Event image={event.frontmatter.image.url} title={event.frontmatter.title} url={event.url}>
-                <p class="caption">{event.frontmatter.location.name}</p>
-                <p class="small">{`${event.frontmatter.date} ${event.frontmatter.time}`}</p>
+              <Event
+                className=""
+                image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXNrcmk2emloanpxZzF1dXMzd216eWd1ZnExY3l6dDI5YTlwdXp0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/g01ZnwAUvutuK8GIQn/giphy.gif"
+                title="Seeking Speakers: Come Sparkle on the Stage!"
+                url="/join">
+                <p class="caption">Every adventure requires a first step.</p>
+                <p class="small">It's always talks-time.</p>
               </Event>
             </li>
-          ))
+          ) : (
+            upcomingEvents.map((event) => (
+              <li class="@container">
+                <Event image={event.frontmatter.image.url} title={event.frontmatter.title} url={event.url}>
+                  <p class="caption">{event.frontmatter.location.name}</p>
+                  <p class="small">{`${event.frontmatter.date} ${event.frontmatter.time}`}</p>
+                </Event>
+              </li>
+            ))
+          )
         }
       </ul>
     </div>
