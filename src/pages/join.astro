@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon';
+
 import DefaultLayout from '../layouts/DefaultLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 
@@ -16,14 +18,16 @@ import lightCover from '../assets/img/events-light.svg';
           <h4>Monthly meetings</h4>
           <h4>
             registration required on: <a href="https://meetup.com/frontenders-ticino/" target="_blank"
-              >meetup.com/frontenders-ticino/</a>
+              >meetup.com/frontenders-ticino/</a
+            >
           </h4>
         </div>
         <div class="flex flex-col gap-4 md:hidden">
           <h6>Monthly meetings</h6>
           <h6>
             registration required on: <a href="https://meetup.com/frontenders-ticino/" target="_blank"
-              >meetup.com/frontenders-ticino/</a>
+              >meetup.com/frontenders-ticino/</a
+            >
           </h6>
         </div>
       </div>
@@ -31,7 +35,16 @@ import lightCover from '../assets/img/events-light.svg';
         <h3>As a speaker_</h3>
         <div class="hidden flex-col gap-4 md:flex">
           <h4>Hey there! Do you happen to have an exciting topic in mind that you'd like to propose? 😊</h4>
-          <h4>Send an email to: <a href="mailto:hello@frontendersticino.ch">hello@frontendersticino.ch</a></h4>
+          <h4>
+            <Icon name="mdi:telegram" class="w-8 inline-block" />
+            <span class="inline-block">Join to our telegram community</span>
+            <a class="inline-block" href="https://t.me/CodeCrafters_ticino">CodeCrafters_ticino</a>
+          </h4>
+          <h4>
+            <Icon name="mdi:mail" class="w-8 inline-block" />
+            <span class="inline-block">Send an email to:</span>
+            <a class="inline-block" href="mailto:hello@frontendersticino.ch">hello@frontendersticino.ch</a>
+          </h4>
         </div>
         <div class="flex flex-col gap-4 md:hidden">
           <h6>Hey there! Do you happen to have an exciting topic in mind that you'd like to propose? 😊</h6>
