@@ -22,8 +22,10 @@ const { frontmatter } = Astro.props;
     </div>
     <div class="inline-grid gap-x-20 md:grid-cols-3">
       <div class="flex h-fit flex-initial grid-cols-1 flex-col gap-y-8 md:col-span-2 md:gap-y-20">
-        <Image src={frontmatter.image.url} alt={frontmatter.image.alt} class="hidden md:block rounded-3xl" height={388} width="690" />
-        <Image src={frontmatter.image.url} alt={frontmatter.image.alt} class="md:hidden rounded-3xl" height={220} width={390} />
+        <div class="h-[220px] md:h-[338px]">
+          <Image src={frontmatter.image.url} alt={frontmatter.image.alt} class="hidden md:block rounded-3xl object-cover h-full" height={388} width={690} />
+          <Image src={frontmatter.image.url} alt={frontmatter.image.alt} class="md:hidden rounded-3xl object-cover h-full" height={220} width={390} />
+        </div>
 
         <div class="flex w-full flex-col gap-y-4 self-start md:hidden">
           <div class="outline-card flex flex-col gap-y-6">
