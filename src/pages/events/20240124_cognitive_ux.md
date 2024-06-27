@@ -12,7 +12,7 @@ location:
   url: https://maps.app.goo.gl/U3PgxZG6zhKP4tgy8
 speakers:
   - fullname: Emilia Ciardi
-    avatar: https://media.licdn.com/dms/image/C5603AQEloeOOgJ6WvA/profile-displayphoto-shrink_800_800/0/1516286100814?e=1717027200&v=beta&t=NYUGSEAYwQ2Mv94BmGbJfHqcZh3KRuaIwwkz6vJ1ji4
+    avatar: https://media.licdn.com/dms/image/C5603AQEloeOOgJ6WvA/profile-displayphoto-shrink_800_800/0/1516286100814?e=1724889600&v=beta&t=HcWbirlmyE0VBf-Eu3ZIngxYtyv365d5ONuSLclEJpg
     link: https://www.linkedin.com/in/ekleptica/
 image:
   url: '/events/cognitive_ux.jpg'
