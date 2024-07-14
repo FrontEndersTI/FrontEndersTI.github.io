@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 const { url = Astro.request.url } = Astro.props;
 
@@ -7,5 +7,5 @@ let URL = `https://www.linkedin.com/sharing/share-offsite/?url=${url}&title=Shar
 ---
 
 <a class="button has-icon behavior-text size-small" target="_blank" href={URL} rel="noopener noreferrer">
-  <Icon pack="mdi" name="linkedin" />
+  <Icon name="mdi:linkedin" />
 </a>

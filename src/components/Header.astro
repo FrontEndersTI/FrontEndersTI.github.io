@@ -1,7 +1,7 @@
 ---
 import Navigation from '../components/Navigation.astro';
 import { SkipLinks } from 'accessible-astro-components';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 ---
 
 <header class="fixed left-0 right-0 top-0">
@@ -16,17 +16,17 @@ import { Icon } from 'astro-icon';
 
     <li class="menu-item type-icon md:ml-40">
       <a href="https://github.com/FrontEndersTI" title="Go to the GitHub page" target="_blank">
-        <Icon pack="ion" name="logo-github" />
+        <Icon name="ion:logo-github" />
       </a>
     </li>
     <li class="menu-item type-icon">
       <a href="https://flickr.com/photos/frontendersticino" title="Go to the Flickr page" target="_blank">
-        <Icon pack="jam" name="flickr" />
+        <Icon name="jam:flickr" />
       </a>
     </li>
     <li class="menu-item type-icon">
       <a href="https://www.linkedin.com/groups/7452605/" title="Go to the Linkedin group" target="_blank">
-        <Icon pack="mdi" name="linkedin" />
+        <Icon name="mdi:linkedin" />
       </a>
     </li>
     <li class="menu-item type-icon">
@@ -36,7 +36,7 @@ import { Icon } from 'astro-icon';
     </li>
     <li class="menu-item type-icon">
       <a href="https://www.facebook.com/frontendersticino" title="Go to the facebook page" target="_blank">
-        <Icon pack="mdi" name="facebook" />
+        <Icon name="mdi:facebook" />
       </a>
     </li>
   </Navigation>
