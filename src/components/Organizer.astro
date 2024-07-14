@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 const { name, description, image, linkedin, quote } = Astro.props;
 ---
@@ -17,7 +17,7 @@ const { name, description, image, linkedin, quote } = Astro.props;
       <div class="flex flex-col items-start gap-6">
         <p class="large">{quote}</p>
         <a class="button has-icon behavior-text size-large" href={linkedin} target="_blank" aria-label={`Go to ${name}'s Linkedin profile'`}>
-          <Icon pack="mdi" name="linkedin" />
+          <Icon name="mdi:linkedin" />
         </a>
       </div>
     </div>

@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 
 const { url = Astro.request.url, description } = Astro.props;
 
@@ -7,5 +7,5 @@ let URL = `https://api.whatsapp.com/send?text=${description} ${url}`;
 ---
 
 <a class="button has-icon behavior-text size-small" target="_blank" href={URL} rel="noopener noreferrer">
-  <Icon pack="mdi" name="whatsapp" />
+  <Icon name="mdi:whatsapp" />
 </a>

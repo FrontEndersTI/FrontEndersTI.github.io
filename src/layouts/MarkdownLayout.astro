@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
 import DefaultLayout from './DefaultLayout.astro';
 import Twitter from '../components/social/Twitter.astro';
@@ -13,7 +13,7 @@ const { frontmatter } = Astro.props;
 <DefaultLayout title={frontmatter.title}>
   <div class="container flex flex-col items-start">
     <a class="button has-icon behavior-text" href="/events">
-      <Icon pack="mdi" name="chevron-left" />
+      <Icon name="mdi:chevron-left" />
       See all events
     </a>
     <!-- All events navigation button -->
@@ -35,7 +35,7 @@ const { frontmatter } = Astro.props;
               <div class="flex">
                 <a class="button has-icon behavior-text size-small" href={frontmatter.location.url} target="_blank">
                   {frontmatter.location.name}
-                  <Icon pack="mdi" name="map-marker-outline" />
+                  <Icon name="mdi:map-marker-outline" />
                 </a>
               </div>
             </div>
@@ -57,7 +57,7 @@ const { frontmatter } = Astro.props;
                   <div class="flex flex-col items-start gap-y-1">
                     <p>{speaker.fullname}</p>
                     <a class="button has-icon behavior-text size-small" href={speaker.link} target="_blank">
-                      <Icon pack="mdi" name="linkedin" />
+                      <Icon name="mdi:linkedin" />
                     </a>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ const { frontmatter } = Astro.props;
             <div class="flex">
               <a class="button has-icon behavior-text size-small" href={frontmatter.location.url} target="_blank">
                 {frontmatter.location.name}
-                <Icon pack="mdi" name="map-marker-outline" />
+                <Icon name="mdi:map-marker-outline" />
               </a>
             </div>
           </div>
@@ -131,7 +131,7 @@ const { frontmatter } = Astro.props;
 
           <a class="button has-icon size-small" href={frontmatter.meetup} target="_blank">
             subscribe
-            <Icon pack="cib" name="meetup" />
+            <Icon name="cib:meetup" />
           </a>
         </div>
       </div>
@@ -141,7 +141,7 @@ const { frontmatter } = Astro.props;
   <div class="share sticky bottom-0 px-6 pb-8 pt-4 md:hidden">
     <a class="button has-icon size-small" href={frontmatter.meetup} target="_blank">
       subscribe
-      <Icon pack="cib" name="meetup" />
+      <Icon name="cib:meetup" />
     </a>
   </div>
 </DefaultLayout>
